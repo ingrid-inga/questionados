@@ -1,0 +1,42 @@
+body { 
+    overflow:hidden;
+    height:100vh;
+    width:100vw;
+    background:#161515;
+    --c1: #768eeb;
+    --c2: rgb(127, 176, 185);
+    background-image: -webkit-linear-gradient(top, var(--c1), var(--c2));
+    background-image: -moz-linear-gradient(top, var(--c1), var(--c2));
+    background-image: -o-linear-gradient(top, var(--c1), var(--c2));
+    background-image: -ms-linear-gradient(top, var(--c1), var(--c2));
+    background-image: linear-gradient(top, var(--c1), var(--c2));
+    color: rgb(250, 232, 69);
+    margin-top: 10vh;
+}
+  
+.active {
+  animation: shake 200ms 2 linear;
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(6px, 0);
+  }
+  50% {
+    transform: translate(-6px, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+
+  text-center {
+      
+    color: bisque;
+    font-size: larger;
+  }
+
+  h5 {
+    color: antiquewhite;
+  }
+
+}
