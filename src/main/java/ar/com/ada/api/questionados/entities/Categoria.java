@@ -55,7 +55,7 @@ public class Categoria {
         this.preguntas = preguntas;
     }
 
-    public void agregarPregunta(Pregunta pregunta){
+    public void agregarPregunta(Pregunta pregunta) {
         this.preguntas.add(pregunta);
     }
 }
