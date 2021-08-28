@@ -28,9 +28,11 @@ public class PreguntaService {
         return null;
     }
 
+
     public List<Pregunta> traerPreguntas() {
         return repo.findAll();
     }
+
 
     public Pregunta crearPregunta(String enunciado, Integer categoriaId, List<Respuesta> opciones ) {
         
@@ -42,11 +44,17 @@ public class PreguntaService {
         pregunta.setCategoria(categoria);
       
         for (Respuesta respuesta: opciones) {
-            respuesta.setPregunta(pregunta);
+            pregunta.agregarRespuesta(respuesta);
         }
         
         repo.save(pregunta);
         return pregunta;
+    }
+
+
+    public void eliminarPreguntaPorId(Integer id) {
+        Pregunta pregunta = repo.findByPreguntaId(id);
+        repo.delete  (pregunta);
     }
 }
 

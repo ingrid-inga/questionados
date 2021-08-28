@@ -8,6 +8,7 @@ import ar.com.ada.api.questionados.entities.Pregunta;
 @Repository
 public interface PreguntaRepository extends JpaRepository<Pregunta, Integer>{
 
-
+    Pregunta findByPreguntaId(Integer id);
+   
     
 }

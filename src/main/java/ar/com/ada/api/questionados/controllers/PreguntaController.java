@@ -36,10 +36,24 @@ public class PreguntaController {
                 preguntaNueva.opciones);
         respuesta.isOk = true;
         respuesta.id = pregunta.getPreguntaId();
-        respuesta.message = "La pregunta fue creada con exito";
+        respuesta.message = "La pregunta fue creada con éxito";
 
         return ResponseEntity.ok(preguntaNueva);
 
     }
+
+    @DeleteMapping("/preguntas/{id}")
+    public ResponseEntity<GenericResponse> eliminarPregunta(@PathVariable Integer id) {
+        service.eliminarPreguntaPorId(id);
+
+        GenericResponse respuesta = new GenericResponse();
+        respuesta.isOk = true;
+        respuesta.message = "La pregunta fue eliminada con éxito.";
+
+        return ResponseEntity.ok(respuesta);
+    }
+    
+
+
 
 }
