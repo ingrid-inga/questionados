@@ -19,8 +19,8 @@ public class Categoria {
 
     private String descripcion;
 
-    @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JsonIgnore
+    @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Pregunta> preguntas = new ArrayList<>();
 
     public Integer getCategoriaId() {

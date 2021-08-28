@@ -44,7 +44,7 @@ public class PreguntaService {
         pregunta.setCategoria(categoria);
       
         for (Respuesta respuesta: opciones) {
-            pregunta.agregarRespuesta(respuesta);
+            respuesta.setPregunta(pregunta);
         }
         
         repo.save(pregunta);
@@ -52,9 +52,9 @@ public class PreguntaService {
     }
 
 
-    public void eliminarPreguntaPorId(Integer id) {
-        Pregunta pregunta = repo.findByPreguntaId(id);
-        repo.delete  (pregunta);
+    public void eliminarPregunta(Integer id) {
+        //Pregunta pregunta = repo.findByPreguntaId(id);
+        repo.deleteById(id);
     }
 }
 

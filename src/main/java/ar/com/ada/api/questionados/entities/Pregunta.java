@@ -4,7 +4,8 @@ import java.util.*;
 
 import javax.persistence.*;
 
-//import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 @Table(name = "pregunta")
@@ -16,34 +17,19 @@ public class Pregunta {
     @Column(name = "pregunta_id")
     private Integer preguntaId;
     
-    @Column(name = "enunciado")
     private String enunciado;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "categoria_id", referencedColumnName = "categoria_id")
     private Categoria categoria;
 
-    @OneToMany(mappedBy = "pregunta", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "pregunta", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Respuesta> opciones = new ArrayList<>();
 
     public void agregarRespuesta(Respuesta respuesta){
         this.opciones.add(respuesta);
     }
-
-
-   // public void agregarOpcion(String textoOpcion, boolean esCorrecta) {
-    //    Respuesta r = new Respuesta(textoOpcion, esCorrecta);
-      //  this.opciones.add(r);
-   // }
-
-    //public void agregarOpcion(String textoOpcion) {
-      //  this.agregarOpcion(textoOpcion, false);
-
-   // }
-
-   // public void agregarOpcionFalsa(String textoOpcion) {
-     //   this.agregarOpcion(textoOpcion, false);
-    //}
 
 	public Integer getPreguntaId() {
 		return preguntaId;
